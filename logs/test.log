@@ -1,0 +1,407 @@
+2024/6/3 20:20:55	INFO	kcp listens on 22102
+2024/6/3 20:21:44	INFO	[Dispatch] 客户端 %s 登录失败：账号创建失败
+2024/6/3 20:21:45	INFO	[Dispatch] 客户端 %s 登录失败：账号创建失败
+2024/6/3 20:21:45	INFO	[Dispatch] 客户端 %s 登录失败：账号创建失败
+2024/6/3 20:21:45	INFO	[Dispatch] 客户端 %s 登录失败：账号创建失败
+2024/6/3 20:21:45	INFO	[Dispatch] 客户端 %s 登录失败：账号创建失败
+2024/6/3 20:57:57	INFO	kcp listens on 22102
+2024/6/3 20:59:18	INFO	客户端 127.0.0.1:52606 已连接
+2024/6/3 20:59:18	INFO	handle: 21228
+2024/6/3 20:59:18	INFO	handle: 25842
+2024/6/3 20:59:18	INFO	handle: 4448
+2024/6/3 20:59:18	ERROR	router 4448 not exist
+
+2024/6/3 20:59:18	INFO	handle: 4448
+2024/6/3 20:59:18	ERROR	router 4448 not exist
+
+2024/6/3 20:59:18	INFO	handle: 9681
+2024/6/3 20:59:18	ERROR	Read short const2 error:EOF
+2024/6/3 20:59:18	ERROR	Read short const2 error:EOF
+2024/6/3 20:59:18	ERROR	Bad Data Package Received: got -7117 ,expect 17767
+2024/6/3 20:59:18	ERROR	router 9681 not exist
+
+2024/6/3 20:59:19	INFO	handle: 4448
+2024/6/3 20:59:19	ERROR	Bad Data Package Received: got -7117 ,expect 17767
+2024/6/3 20:59:19	ERROR	router 4448 not exist
+
+2024/6/3 20:59:26	INFO	handle: 5285
+2024/6/3 20:59:36	INFO	handle: 5285
+2024/6/3 20:59:39	INFO	handle: 5285
+2024/6/3 20:59:49	INFO	handle: 5285
+2024/6/3 20:59:59	INFO	handle: 5285
+2024/6/3 21:00:04	INFO	handle: 5285
+2024/6/3 21:00:14	INFO	handle: 5285
+2024/6/3 21:00:15	ERROR	Bad Data Package Received: got -7117 ,expect 17767
+2024/6/3 21:00:15	ERROR	Bad Data Package Received: got -7117 ,expect 17767
+2024/6/3 21:00:16	INFO	handle: 5285
+2024/6/3 21:00:18	INFO	handle: 4448
+2024/6/3 21:00:18	ERROR	router 4448 not exist
+
+2024/6/3 21:00:18	INFO	handle: 4448
+2024/6/3 21:00:18	ERROR	router 4448 not exist
+
+2024/6/3 21:00:24	INFO	handle: 7992
+2024/6/3 21:00:24	ERROR	router 7992 not exist
+
+2024/6/3 21:00:26	INFO	handle: 5285
+2024/6/3 21:00:26	INFO	handle: 7992
+2024/6/3 21:00:26	ERROR	router 7992 not exist
+
+2024/6/3 21:00:26	INFO	handle: 7992
+2024/6/3 21:00:26	ERROR	router 7992 not exist
+
+2024/6/3 21:00:26	INFO	handle: 7992
+2024/6/3 21:00:26	ERROR	router 7992 not exist
+
+2024/6/3 21:00:26	INFO	handle: 7992
+2024/6/3 21:00:26	ERROR	router 7992 not exist
+
+2024/6/3 21:00:27	INFO	handle: 7992
+2024/6/3 21:00:27	ERROR	router 7992 not exist
+
+2024/6/3 21:00:27	INFO	handle: 7992
+2024/6/3 21:00:27	ERROR	router 7992 not exist
+
+2024/6/3 21:00:27	INFO	handle: 7992
+2024/6/3 21:00:27	ERROR	router 7992 not exist
+
+2024/6/3 21:00:27	INFO	handle: 7992
+2024/6/3 21:00:27	ERROR	router 7992 not exist
+
+2024/6/3 21:00:29	INFO	handle: 5285
+2024/6/3 21:00:29	INFO	handle: 7992
+2024/6/3 21:00:29	ERROR	router 7992 not exist
+
+2024/6/3 21:00:32	INFO	handle: 5285
+2024/6/3 21:00:33	INFO	handle: 7992
+2024/6/3 21:00:33	ERROR	router 7992 not exist
+
+2024/6/3 21:00:33	INFO	handle: 7992
+2024/6/3 21:00:33	ERROR	router 7992 not exist
+
+2024/6/3 21:00:33	INFO	handle: 7992
+2024/6/3 21:00:33	ERROR	router 7992 not exist
+
+2024/6/3 21:00:33	ERROR	Bad Data Package Received: got -7117 ,expect 17767
+2024/6/3 21:00:33	ERROR	Bad Data Package Received: got -7117 ,expect 17767
+2024/6/3 21:00:36	ERROR	Bad Data Package Received: got -7117 ,expect 17767
+2024/6/3 21:00:36	ERROR	Bad Data Package Received: got -7117 ,expect 17767
+2024/6/3 21:00:37	INFO	handle: 7992
+2024/6/3 21:00:37	ERROR	router 7992 not exist
+
+2024/6/3 21:00:37	INFO	handle: 7992
+2024/6/3 21:00:37	ERROR	router 7992 not exist
+
+2024/6/3 21:00:37	INFO	handle: 7992
+2024/6/3 21:00:37	ERROR	router 7992 not exist
+
+2024/6/3 21:00:38	INFO	handle: 4448
+2024/6/3 21:00:38	ERROR	Bad Data Package Received: got -7117 ,expect 17767
+2024/6/3 21:00:38	ERROR	router 4448 not exist
+
+2024/6/3 21:00:40	ERROR	Bad Data Package Received: got -7117 ,expect 17767
+2024/6/3 21:00:40	ERROR	Bad Data Package Received: got -7117 ,expect 17767
+2024/6/3 21:00:42	INFO	handle: 5285
+2024/6/3 21:00:44	INFO	handle: 5285
+2024/6/3 21:00:46	INFO	handle: 5285
+2024/6/3 21:00:47	INFO	handle: 7992
+2024/6/3 21:00:47	ERROR	router 7992 not exist
+
+2024/6/3 21:00:49	INFO	handle: 5285
+2024/6/3 21:00:49	INFO	handle: 7992
+2024/6/3 21:00:49	ERROR	router 7992 not exist
+
+2024/6/3 21:00:55	INFO	handle: 5285
+2024/6/3 21:00:55	INFO	handle: 7992
+2024/6/3 21:00:55	ERROR	router 7992 not exist
+
+2024/6/3 21:00:57	INFO	handle: 5285
+2024/6/3 21:00:58	INFO	handle: 7992
+2024/6/3 21:00:58	ERROR	router 7992 not exist
+
+2024/6/3 21:01:07	INFO	handle: 5285
+2024/6/3 21:01:17	INFO	handle: 5285
+2024/6/3 21:01:27	INFO	handle: 5285
+2024/6/3 21:01:37	INFO	handle: 5285
+2024/6/3 21:01:47	INFO	handle: 5285
+2024/6/3 21:01:57	INFO	handle: 5285
+2024/6/3 21:02:07	INFO	handle: 5285
+2024/6/3 21:02:17	INFO	handle: 5285
+2024/6/3 21:02:27	INFO	handle: 5285
+2024/6/3 21:02:37	INFO	handle: 5285
+2024/6/3 21:02:47	INFO	handle: 5285
+2024/6/3 21:02:57	INFO	handle: 5285
+2024/6/3 21:03:07	INFO	handle: 5285
+2024/6/3 21:03:17	INFO	handle: 5285
+2024/6/3 21:03:27	INFO	handle: 5285
+2024/6/3 21:03:37	INFO	handle: 5285
+2024/6/3 21:03:47	INFO	handle: 5285
+2024/6/3 21:03:57	INFO	handle: 5285
+2024/6/3 21:04:07	INFO	handle: 5285
+2024/6/3 21:04:17	INFO	handle: 5285
+2024/6/3 21:04:27	INFO	handle: 5285
+2024/6/3 21:04:37	INFO	handle: 5285
+2024/6/3 21:04:47	INFO	handle: 5285
+2024/6/3 21:04:57	INFO	handle: 5285
+2024/6/3 21:05:07	INFO	handle: 5285
+2024/6/3 21:05:17	INFO	handle: 5285
+2024/6/3 21:05:25	INFO	handle: 5285
+2024/6/3 21:05:26	INFO	handle: 7992
+2024/6/3 21:05:26	ERROR	router 7992 not exist
+
+2024/6/3 21:05:26	INFO	handle: 7992
+2024/6/3 21:05:26	ERROR	router 7992 not exist
+
+2024/6/3 21:05:26	INFO	handle: 7992
+2024/6/3 21:05:26	ERROR	router 7992 not exist
+
+2024/6/3 21:05:26	INFO	handle: 7992
+2024/6/3 21:05:26	ERROR	router 7992 not exist
+
+2024/6/3 21:05:27	INFO	handle: 7992
+2024/6/3 21:05:27	ERROR	router 7992 not exist
+
+2024/6/3 21:05:27	INFO	handle: 7992
+2024/6/3 21:05:27	ERROR	router 7992 not exist
+
+2024/6/3 21:05:27	INFO	handle: 7992
+2024/6/3 21:05:27	ERROR	router 7992 not exist
+
+2024/6/3 22:09:09	INFO	kcp listens on 22102
+2024/6/3 22:09:54	INFO	客户端 127.0.0.1:50088 已连接
+2024/6/3 22:09:54	INFO	handle: 5285
+2024/6/3 22:09:54	ERROR	Bad Data Package Received: got -29633 ,expect 17767
+2024/6/3 22:09:54	ERROR	Bad Data Package Received: got 16387 ,expect 17767
+2024/6/3 22:10:04	INFO	handle: 5285
+2024/6/3 22:10:09	INFO	客户端 127.0.0.1:50088 已断开连接
+2024/6/3 22:10:09	INFO	客户端 127.0.0.1:54935 已连接
+2024/6/3 22:10:09	INFO	handle: 21228
+2024/6/3 22:10:09	INFO	handle: 25842
+2024/6/3 22:10:09	INFO	handle: 4448
+2024/6/3 22:10:09	ERROR	router 4448 not exist
+
+2024/6/3 22:10:09	INFO	handle: 4448
+2024/6/3 22:10:09	ERROR	router 4448 not exist
+
+2024/6/3 22:10:09	INFO	handle: 9681
+2024/6/3 22:10:09	ERROR	Read short const2 error:EOF
+2024/6/3 22:10:09	ERROR	Bad Data Package Received: got -7117 ,expect 17767
+2024/6/3 22:10:09	ERROR	Bad Data Package Received: got -7117 ,expect 17767
+2024/6/3 22:10:09	ERROR	router 9681 not exist
+
+2024/6/3 22:10:10	ERROR	Read short const2 error:EOF
+2024/6/3 22:10:10	ERROR	Bad Data Package Received: got -7117 ,expect 17767
+2024/6/3 22:10:11	INFO	handle: 5285
+2024/6/3 22:10:18	INFO	handle: 5285
+2024/6/3 22:10:27	INFO	handle: 5285
+2024/6/3 22:10:33	INFO	handle: 5285
+2024/6/3 22:10:43	INFO	handle: 5285
+2024/6/3 22:10:53	INFO	handle: 5285
+2024/6/3 22:10:55	INFO	handle: 5285
+2024/6/3 22:11:05	INFO	handle: 5285
+2024/6/3 22:11:06	ERROR	Bad Data Package Received: got -7117 ,expect 17767
+2024/6/3 22:11:06	INFO	handle: 4448
+2024/6/3 22:11:06	ERROR	router 4448 not exist
+
+2024/6/3 22:11:08	INFO	handle: 5285
+2024/6/3 22:11:09	INFO	handle: 4448
+2024/6/3 22:11:09	ERROR	router 4448 not exist
+
+2024/6/3 22:11:09	INFO	handle: 4448
+2024/6/3 22:11:09	ERROR	router 4448 not exist
+
+2024/6/3 22:11:10	INFO	handle: 7992
+2024/6/3 22:11:10	ERROR	router 7992 not exist
+
+2024/6/3 22:11:13	INFO	handle: 7992
+2024/6/3 22:11:13	ERROR	router 7992 not exist
+
+2024/6/3 22:11:13	INFO	handle: 7992
+2024/6/3 22:11:13	ERROR	router 7992 not exist
+
+2024/6/3 22:11:13	INFO	handle: 7992
+2024/6/3 22:11:13	ERROR	router 7992 not exist
+
+2024/6/3 22:11:14	INFO	handle: 7992
+2024/6/3 22:11:14	ERROR	router 7992 not exist
+
+2024/6/3 22:11:14	INFO	handle: 7992
+2024/6/3 22:11:14	ERROR	router 7992 not exist
+
+2024/6/3 22:11:14	INFO	handle: 7992
+2024/6/3 22:11:14	ERROR	router 7992 not exist
+
+2024/6/3 22:11:18	INFO	handle: 5285
+2024/6/3 22:11:21	INFO	handle: 5285
+2024/6/3 22:11:22	INFO	handle: 7992
+2024/6/3 22:11:22	ERROR	router 7992 not exist
+
+2024/6/3 22:11:22	INFO	handle: 7992
+2024/6/3 22:11:22	ERROR	router 7992 not exist
+
+2024/6/3 22:11:22	INFO	handle: 7992
+2024/6/3 22:11:22	ERROR	router 7992 not exist
+
+2024/6/3 22:11:23	INFO	handle: 7992
+2024/6/3 22:11:23	ERROR	router 7992 not exist
+
+2024/6/3 22:11:31	INFO	handle: 5285
+2024/6/3 22:11:41	INFO	handle: 5285
+2024/6/3 22:11:51	INFO	handle: 5285
+2024/6/3 22:12:01	INFO	handle: 5285
+2024/6/3 22:12:11	INFO	handle: 5285
+2024/6/3 22:12:21	INFO	handle: 5285
+2024/6/3 22:12:31	INFO	handle: 5285
+2024/6/3 22:12:39	INFO	handle: 5285
+2024/6/3 22:12:40	ERROR	Bad Data Package Received: got -7117 ,expect 17767
+2024/6/3 22:12:40	ERROR	Bad Data Package Received: got -7117 ,expect 17767
+2024/6/3 22:37:19	INFO	kcp listens on 22102
+2024/6/3 22:38:02	INFO	客户端 127.0.0.1:60242 已连接
+2024/6/3 22:38:02	INFO	handle: 5285
+2024/6/3 22:38:02	ERROR	Bad Data Package Received: got -29633 ,expect 17767
+2024/6/3 22:38:02	ERROR	Bad Data Package Received: got 16387 ,expect 17767
+2024/6/3 22:38:16	INFO	客户端 127.0.0.1:60242 已断开连接
+2024/6/3 22:38:16	INFO	客户端 127.0.0.1:52664 已连接
+2024/6/3 22:38:16	INFO	handle: 21228
+2024/6/3 22:38:16	INFO	handle: 25842
+2024/6/3 22:38:16	INFO	handle: 4448
+2024/6/3 22:38:16	ERROR	router 4448 not exist
+
+2024/6/3 22:38:16	INFO	handle: 4448
+2024/6/3 22:38:16	ERROR	router 4448 not exist
+
+2024/6/3 22:38:16	INFO	handle: 9681
+2024/6/3 22:38:16	ERROR	Bad Data Package Received: got -7117 ,expect 17767
+2024/6/3 22:38:16	ERROR	Read short const2 error:EOF
+2024/6/3 22:38:16	ERROR	Bad Data Package Received: got -7117 ,expect 17767
+2024/6/3 22:38:16	ERROR	router 9681 not exist
+
+2024/6/3 22:38:17	INFO	handle: 4448
+2024/6/3 22:38:17	ERROR	Bad Data Package Received: got -7117 ,expect 17767
+2024/6/3 22:38:17	ERROR	router 4448 not exist
+
+2024/6/3 22:38:17	INFO	handle: 4448
+2024/6/3 22:38:17	ERROR	Bad Data Package Received: got -7117 ,expect 17767
+2024/6/3 22:38:17	ERROR	router 4448 not exist
+
+2024/6/3 22:38:17	INFO	handle: 5285
+2024/6/3 22:38:19	INFO	handle: 4448
+2024/6/3 22:38:19	ERROR	router 4448 not exist
+
+2024/6/3 22:38:19	INFO	handle: 4448
+2024/6/3 22:38:19	ERROR	router 4448 not exist
+
+2024/6/3 22:38:22	INFO	handle: 7992
+2024/6/3 22:38:22	ERROR	router 7992 not exist
+
+2024/6/3 22:38:27	INFO	handle: 5285
+2024/6/3 22:38:36	INFO	handle: 5285
+2024/6/3 22:38:37	INFO	handle: 7992
+2024/6/3 22:38:37	ERROR	router 7992 not exist
+
+2024/6/3 22:38:37	INFO	handle: 7992
+2024/6/3 22:38:37	ERROR	router 7992 not exist
+
+2024/6/3 22:38:38	INFO	handle: 7992
+2024/6/3 22:38:38	ERROR	router 7992 not exist
+
+2024/6/3 22:38:38	INFO	handle: 7992
+2024/6/3 22:38:38	ERROR	router 7992 not exist
+
+2024/6/3 22:38:38	INFO	handle: 7992
+2024/6/3 22:38:38	ERROR	router 7992 not exist
+
+2024/6/3 22:38:38	INFO	handle: 7992
+2024/6/3 22:38:38	ERROR	router 7992 not exist
+
+2024/6/3 22:38:38	INFO	handle: 7992
+2024/6/3 22:38:38	ERROR	router 7992 not exist
+
+2024/6/3 22:38:40	INFO	handle: 5285
+2024/6/3 22:38:50	INFO	handle: 5285
+2024/6/3 22:39:00	INFO	handle: 5285
+2024/6/3 22:39:10	INFO	handle: 5285
+2024/6/3 22:39:20	INFO	handle: 5285
+2024/6/3 22:39:30	INFO	handle: 5285
+2024/6/3 22:39:40	INFO	handle: 5285
+2024/6/3 22:39:50	INFO	handle: 5285
+2024/6/3 22:40:00	INFO	handle: 5285
+2024/6/3 22:40:10	INFO	handle: 5285
+2024/6/3 22:40:20	INFO	handle: 5285
+2024/6/3 22:40:30	INFO	handle: 5285
+2024/6/3 22:40:40	INFO	handle: 5285
+2024/6/3 22:40:50	INFO	handle: 5285
+2024/6/3 22:41:00	INFO	handle: 5285
+2024/6/3 22:41:10	INFO	handle: 5285
+2024/6/3 22:41:20	INFO	handle: 5285
+2024/6/3 22:41:28	INFO	handle: 5285
+2024/6/3 22:41:28	INFO	handle: 7992
+2024/6/3 22:41:28	ERROR	router 7992 not exist
+
+2024/6/3 22:41:29	INFO	handle: 7992
+2024/6/3 22:41:29	ERROR	router 7992 not exist
+
+2024/6/3 22:41:53	INFO	kcp listens on 22102
+2024/6/3 22:42:28	INFO	客户端 127.0.0.1:57453 已连接
+2024/6/3 22:42:28	ERROR	Bad Data Package Received: got -29633 ,expect 17767
+2024/6/3 22:42:28	ERROR	Bad Data Package Received: got -29633 ,expect 17767
+2024/6/3 22:42:38	INFO	客户端 127.0.0.1:57453 已断开连接
+2024/6/3 22:42:38	INFO	客户端 127.0.0.1:52130 已连接
+2024/6/3 22:42:38	INFO	handle: 21228
+2024/6/3 22:42:38	INFO	handle: 25842
+2024/6/3 22:42:38	INFO	handle: 4448
+2024/6/3 22:42:38	ERROR	router 4448 not exist
+
+2024/6/3 22:42:38	INFO	handle: 4448
+2024/6/3 22:42:38	ERROR	router 4448 not exist
+
+2024/6/3 22:42:38	ERROR	Bad Data Package Received: got -7117 ,expect 17767
+2024/6/3 22:42:38	ERROR	Bad Data Package Received: got -7117 ,expect 17767
+2024/6/3 22:42:38	ERROR	Read short const2 error:EOF
+2024/6/3 22:42:38	ERROR	Bad Data Package Received: got -7117 ,expect 17767
+2024/6/3 22:42:39	ERROR	Bad Data Package Received: got -7117 ,expect 17767
+2024/6/3 22:42:39	ERROR	Bad Data Package Received: got -7117 ,expect 17767
+2024/6/3 22:42:39	ERROR	Bad Data Package Received: got -7117 ,expect 17767
+2024/6/3 22:42:39	ERROR	Bad Data Package Received: got %d ,expect -30293-21404
+2024/6/3 22:42:39	INFO	handle: 5285
+2024/6/3 22:42:41	INFO	handle: 4448
+2024/6/3 22:42:41	ERROR	router 4448 not exist
+
+2024/6/3 22:42:41	INFO	handle: 4448
+2024/6/3 22:42:41	ERROR	router 4448 not exist
+
+2024/6/3 22:42:43	INFO	handle: 7992
+2024/6/3 22:42:43	ERROR	router 7992 not exist
+
+2024/6/3 22:42:45	INFO	handle: 5285
+2024/6/3 22:42:46	INFO	handle: 7992
+2024/6/3 22:42:46	ERROR	router 7992 not exist
+
+2024/6/3 22:42:46	INFO	handle: 7992
+2024/6/3 22:42:46	ERROR	router 7992 not exist
+
+2024/6/3 22:42:46	INFO	handle: 7992
+2024/6/3 22:42:46	ERROR	router 7992 not exist
+
+2024/6/3 22:42:46	INFO	handle: 7992
+2024/6/3 22:42:46	ERROR	router 7992 not exist
+
+2024/6/3 22:42:46	INFO	handle: 7992
+2024/6/3 22:42:46	ERROR	router 7992 not exist
+
+2024/6/3 22:42:47	INFO	handle: 7992
+2024/6/3 22:42:47	ERROR	router 7992 not exist
+
+2024/6/3 22:42:47	INFO	handle: 7992
+2024/6/3 22:42:47	ERROR	router 7992 not exist
+
+2024/6/3 22:42:47	INFO	handle: 7992
+2024/6/3 22:42:47	ERROR	router 7992 not exist
+
+2024/6/3 22:42:49	INFO	handle: 5285
+2024/6/3 22:42:53	INFO	handle: 5285
+2024/6/3 22:43:03	INFO	handle: 5285
+2024/6/3 22:43:13	INFO	handle: 5285
+2024/6/3 22:43:23	INFO	handle: 5285
+2024/6/3 22:43:33	INFO	handle: 5285
+2024/6/3 22:43:43	INFO	handle: 5285
