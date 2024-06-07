@@ -1,13 +1,18 @@
 package resp
 
 import (
+	"Go-Grasscutter/config"
 	data2 "Go-Grasscutter/data"
 	"Go-Grasscutter/game/player"
+	"Go-Grasscutter/game/pros"
+	"Go-Grasscutter/game/quest/enum"
 	"Go-Grasscutter/generated/pb"
 	"Go-Grasscutter/log"
 	"Go-Grasscutter/server/kcp/packet/base"
+	"fmt"
 	"github.com/jinzhu/copier"
 	"google.golang.org/protobuf/proto"
+	"math/rand"
 	"time"
 )
 
@@ -47,13 +52,14 @@ func PacketPlayerDataNotify(player *player.Player) *base.Packet {
 
 func PacketStoreWeightLimitNotify() *base.Packet {
 	code := base.StoreWeightLimitNotify
-	// todo need config ?
+
+	inventoryLimits := config.Conf.Server.Game.GameOptions.InventoryLimits
 	msg := pb.StoreWeightLimitNotify{
-		WeightLimit:         30000,
-		FurnitureCountLimit: 2000,
-		WeaponCountLimit:    20000,
-		ReliquaryCountLimit: 2000,
-		MaterialCountLimit:  2000,
+		WeightLimit:         uint32(inventoryLimits.All),
+		FurnitureCountLimit: uint32(inventoryLimits.Furniture),
+		WeaponCountLimit:    uint32(inventoryLimits.Weapons),
+		ReliquaryCountLimit: uint32(inventoryLimits.Relics),
+		MaterialCountLimit:  uint32(inventoryLimits.Materials),
 		StoreType:           pb.StoreType_STORE_TYPE_PACK,
 	}
 	data, err := proto.Marshal(&msg)
@@ -98,12 +104,13 @@ func PacketAvatarDataNotify(player *player.Player) *base.Packet {
 	code := base.AvatarDataNotify
 
 	msg := pb.AvatarDataNotify{
-		CurAvatarTeamId:   uint32(player.TeamManager.CurrentTeamIndex),
-		ChooseAvatarGuid:  uint64(player.TeamManager.CurrentCharacterIndex),
-		OwnedFlycloakList: []uint32{},
-		OwnedCostumeList:  []uint32{},
-		AvatarList:        make([]*pb.AvatarInfo, 0),
-		AvatarTeamMap:     make(map[uint32]*pb.AvatarTeam),
+		CurAvatarTeamId:           uint32(player.TeamManager.CurrentTeamIndex),
+		ChooseAvatarGuid:          uint64(player.TeamManager.CurrentCharacterIndex),
+		OwnedFlycloakList:         []uint32{},
+		OwnedCostumeList:          []uint32{},
+		AvatarList:                make([]*pb.AvatarInfo, 0),
+		AvatarTeamMap:             make(map[uint32]*pb.AvatarTeam),
+		BackupAvatarTeamOrderList: make([]uint32, 0),
 	}
 	err := copier.Copy(&msg.OwnedFlycloakList, player.FlyCloakList)
 	if err != nil {
@@ -119,10 +126,14 @@ func PacketAvatarDataNotify(player *player.Player) *base.Packet {
 		msg.AvatarList = append(msg.AvatarList, val.ToProto())
 	}
 
-	for key, val := range player.TeamManager.Teams {
-		// todo change val
-		msg.AvatarTeamMap[uint32(key)] = val.ToProto()
+	for id, teamInfo := range player.TeamManager.Teams {
+		msg.AvatarTeamMap[uint32(id)] = teamInfo.ToProto()
+		if id > 4 {
+			// Add the id list for custom teams.
+			msg.BackupAvatarTeamOrderList = append(msg.BackupAvatarTeamOrderList, uint32(id))
+		}
 	}
+
 	// Set main character
 	val, ok := player.Avatars.Avatars[player.MainCharacterID]
 	if ok {
@@ -134,6 +145,7 @@ func PacketAvatarDataNotify(player *player.Player) *base.Packet {
 		log.SugaredLogger.Error(err)
 		return nil
 	}
+
 	return &base.Packet{
 		Opcode:            code,
 		ShouldBuildHeader: true,
@@ -148,8 +160,7 @@ func PacketFinishedParentQuestNotify(player *player.Player) *base.Packet {
 	}
 
 	for _, val := range player.QuestManager.MainQuests {
-		// todo ParentQuestState
-		if val.State != "PARENT_QUEST_STATE_CANCELED" {
+		if val.State != enum.ParentQuestState_name[enum.PARENT_QUEST_STATE_CANCELED] {
 			msg.ParentQuestList = append(msg.ParentQuestList, val.ToProto(false))
 		}
 	}
@@ -210,8 +221,7 @@ func PacketQuestListNotify(player *player.Player) *base.Packet {
 
 	for _, child := range player.QuestManager.MainQuests {
 		for _, val := range child.ChildQuests {
-			// todo QuestState
-			if val.State != "QUEST_STATE_UNSTARTED" {
+			if val.State != enum.QuestState_name[enum.QUEST_STATE_UNSTARTED] {
 				msg.QuestList = append(msg.QuestList, val.ToProto())
 			}
 		}
@@ -299,6 +309,138 @@ func PacketAllWidgetDataNotify(player *player.Player) *base.Packet {
 			&pb.WidgetSlotData{
 				Tag: pb.WidgetSlotTag_WIDGET_SLOT_TAG_ATTACH_AVATAR,
 			})
+	}
+
+	data, err := proto.Marshal(&msg)
+	if err != nil {
+		log.SugaredLogger.Error(err)
+		return nil
+	}
+
+	return &base.Packet{
+		Opcode: code,
+		Data:   data,
+	}
+}
+
+func PacketWidgetGadgetAllDataNotify() *base.Packet {
+	code := base.AllWidgetDataNotify
+	msg := pb.WidgetGadgetAllDataNotify{
+		WidgetGadgetData: make([]*pb.WidgetGadgetData, 0),
+	}
+	data, err := proto.Marshal(&msg)
+	if err != nil {
+		log.SugaredLogger.Error(err)
+		return nil
+	}
+
+	return &base.Packet{
+		Opcode: code,
+		Data:   data,
+	}
+}
+
+func PacketCombineDataNotify(unlockedCombines []int) *base.Packet {
+	code := base.CombineDataNotify
+	msg := pb.CombineDataNotify{
+		CombineIdList: make([]uint32, 0),
+	}
+
+	err := copier.Copy(&msg.CombineIdList, unlockedCombines)
+	if err != nil {
+		log.SugaredLogger.Error(err)
+		return nil
+	}
+
+	data, err := proto.Marshal(&msg)
+	if err != nil {
+		log.SugaredLogger.Error(err)
+		return nil
+	}
+
+	return &base.Packet{
+		Opcode: code,
+		Data:   data,
+	}
+}
+
+func PacketGetChatEmojiCollectionRsp(emojiIds []int) *base.Packet {
+	code := base.GetChatEmojiCollectionRsp
+	msg := pb.GetChatEmojiCollectionRsp{
+		ChatEmojiCollectionData: &pb.ChatEmojiCollectionData{
+			EmojiIdList: make([]uint32, 0),
+		},
+	}
+
+	err := copier.Copy(&msg.ChatEmojiCollectionData.EmojiIdList, emojiIds)
+	if err != nil {
+		log.SugaredLogger.Error(err)
+		return nil
+	}
+
+	data, err := proto.Marshal(&msg)
+	if err != nil {
+		log.SugaredLogger.Error(err)
+		return nil
+	}
+
+	return &base.Packet{
+		Opcode: code,
+		Data:   data,
+	}
+}
+
+// todo implement other PacketPlayerEnterSceneNotify
+func PacketPlayerEnterSceneNotify(p *player.Player) *base.Packet {
+	code := base.PlayerEnterSceneNotify
+	p.SceneLoadState = player.LOADING
+	p.EnterSceneToken = rand.Intn(99999-1000) + 1000
+
+	msg := pb.PlayerEnterSceneNotify{
+		SceneId:         uint32(p.SceneID),
+		Pos:             p.Position.ToProto(),
+		SceneBeginTime:  uint64(time.Now().Unix()),
+		Type:            pb.EnterType_ENTER_TYPE_SELF,
+		TargetUid:       uint32(p.ID),
+		EnterSceneToken: uint32(p.EnterSceneToken),
+		// todo WorldLevel: p.Properties.
+		EnterReason:            uint32(pros.Login),
+		IsFirstLoginEnterScene: !p.HasSentLoginPackets,
+		WorldType:              1,
+		SceneTransaction: fmt.Sprint("3-",
+			p.ID,
+			"-",
+			int(time.Now().UnixMilli()/1000),
+			"-",
+			18402), // todo ENHANCE: improve splice strings performance
+	}
+
+	data, err := proto.Marshal(&msg)
+	if err != nil {
+		log.SugaredLogger.Error(err)
+		return nil
+	}
+
+	// todo move p.HasSentLoginPackets to another location
+	// First notify packets sent
+	p.HasSentLoginPackets = true
+
+	return &base.Packet{
+		Opcode: code,
+		Data:   data,
+	}
+}
+
+func PacketPlayerLevelRewardUpdateNotify(rewardedLevels []int) *base.Packet {
+	code := base.PlayerLevelRewardUpdateNotify
+	msg := pb.PlayerLevelRewardUpdateNotify{
+		LevelList: make([]uint32, 0),
+	}
+
+	err := copier.Copy(&msg.LevelList, rewardedLevels)
+	if err != nil {
+		log.SugaredLogger.Error(err)
+		return nil
 	}
 
 	data, err := proto.Marshal(&msg)

@@ -1,6 +1,7 @@
 package quest
 
 import (
+	"Go-Grasscutter/game/quest/enum"
 	"Go-Grasscutter/generated/pb"
 	"Go-Grasscutter/log"
 	"github.com/jinzhu/copier"
@@ -11,7 +12,7 @@ type GameQuest struct {
 	// QuestData
 	SubQuestId         int    `bson:"subQuestId"`
 	MainQuestId        int    `bson:"mainQuestId"`
-	State              string `bson:"state"` // todo QuestState
+	State              string `bson:"state"` // todo INCOMPLETE: QuestState
 	StartTime          int    `bson:"startTime"`
 	AcceptTime         int    `bson:"acceptTime"`
 	FinishTime         int    `bson:"finishTime"`
@@ -24,8 +25,8 @@ type GameQuest struct {
 
 func (g *GameQuest) ToProto() *pb.Quest {
 	prot := &pb.Quest{
-		QuestId: uint32(g.SubQuestId),
-		// State: , // todo QuestState.GetValue()
+		QuestId:            uint32(g.SubQuestId),
+		State:              enum.ParentQuestState_value[g.State],
 		ParentQuestId:      uint32(g.MainQuestId),
 		StartTime:          uint32(g.StartTime),
 		StartGameTime:      438,

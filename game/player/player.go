@@ -69,7 +69,7 @@ type Player struct {
 	UnlockedCombines          []int                                   `bson:"unlockedCombines"`
 	UnlockedFurniture         []int                                   `bson:"unlockedFurniture"`
 	UnlockedFurnitureSuite    []int                                   `bson:"unlockedFurnitureSuite"`
-	ExpeditionInfo            map[int64]*expedition.ExpeditionInfo    `bson:"expeditionInfo"` // todo int64, ExpeditionInfo
+	ExpeditionInfo            map[int64]*expedition.ExpeditionInfo    `bson:"expeditionInfo"`
 	UnlockedRecipies          map[int]int                             `bson:"unlockedRecipies"`
 	ActiveForges              []*forging.ActiveForgeData              `bson:"activeForges"`
 	ActiveCookCompounds       map[int]*cooking.ActiveCookCompoundData `bson:"activeCookCompounds"`
@@ -82,7 +82,7 @@ type Player struct {
 
 	NextGuid int64
 	PeerId   int
-	// world
+	World    *world.World
 	// curHomeWorld
 	HasSentInitPacketInHome bool
 	// scene
@@ -105,10 +105,21 @@ type Player struct {
 	CollectionRecordStore *PlayerCollectionRecords `bson:"collectionRecordStore"`
 	ShopLimit             []*shop.ShopLimit        `bson:"shopLimit"`
 
-	// todo home
+	// todo INCOMPLETE: home
 
-	MoonCard             bool                        `bson:"moonCard"`
-	MoonCardDuration     int                         `bson:"moonCardDuration"`
+	MoonCard bool `bson:"moonCard"`
+	// moonCardStartTime time.Duration
+	MoonCardDuration int `bson:"moonCardDuration"`
+	// moonCardGetTimes []int `bson:"moonCardGetTimes"`
+
+	Paused bool
+	// QueuedTeleport
+	EnterSceneToken       int
+	SceneLoadState        SceneLoadState
+	HasSentLoginPackets   bool
+	NextSendPlayerLocTime int64
+	// EnterHomeRequests map[int]any
+
 	SpringLastUsed       int64                       `bson:"springLastUsed"`
 	MapMarks             map[string]*mapmark.MapMark `bson:"mapMarks"`
 	NextResinRefresh     int                         `bson:"nextResinRefresh"`
@@ -121,6 +132,10 @@ type Player struct {
 	CityInfoData         *city.CityInfoData          `bson:"cityInfoData"`
 }
 
+func NewPlayer(session *kcp.UDPSession) {
+
+}
+
 // Create
 func CreatePlayer(account *Account, sess *kcp.UDPSession) *Player {
 	p := &Player{
@@ -130,19 +145,25 @@ func CreatePlayer(account *Account, sess *kcp.UDPSession) *Player {
 		Nickname:  "Traveler",
 		Signature: "",
 	}
-	// todo applyProperties
-	// todo applyStartingSceneTags
+	// todo INCOMPLETE: applyProperties
+	// todo INCOMPLETE: applyStartingSceneTags
 
 	return p
 }
 
 func (p *Player) LoadFromDatabase() {
+	// todo INCOMPLETE: init Manager
+	// Make sure these exist
 	if p.TeamManager == nil {
 		p.TeamManager = &TeamManager{}
 	}
 
 	if p.Codex == nil {
 		p.Codex = &PlayerCodex{}
+	}
+
+	if p.PlayerProfile == nil {
+		p.PlayerProfile = &friends.PlayerProfile{}
 	}
 
 	if p.PlayerProfile == nil || p.PlayerProfile.Uid == 0 {
@@ -156,10 +177,10 @@ func (p *Player) LoadFromDatabase() {
 			//PlayerLevel:      ,
 			//WorldLevel:       ,
 			LastActiveTime:  utils.GetCurrentSeconds(),
-			EnterHomeOption: 0, // todo
+			EnterHomeOption: 0, // todo INCOMPLETE
 		}
 	}
-	// todo Load all Player managers From Database
+	// todo INCOMPLETE: Load all Player managers From Database
 	// Load from db
 	wait := &sync.WaitGroup{}
 
@@ -176,7 +197,7 @@ func (p *Player) LoadFromDatabase() {
 
 func (p *Player) OnLogin() {
 	if p.SceneTags == nil || len(p.SceneTags) == 0 {
-		// todo applyStartingSceneTags()
+		// todo INCOMPLETE: applyStartingSceneTags()
 	}
 
 	// todo GameHome
@@ -208,6 +229,7 @@ func GetPlayerByAccount(account *Account) *Player {
 	return p
 }
 
+// todo CHECK: move to NewPlayer()
 func (p *Player) ManagementInit() {
 	p.Avatars = &avatar.Storage{
 		Uid:         p.ID,
@@ -232,6 +254,8 @@ func (p *Player) ManagementInit() {
 		Missions:     make(map[int]*battlepass.Mission),
 		TakenRewards: make(map[int]*battlepass.Reward),
 	}
+
+	p.World = &world.World{} // todo INCOMPLETE
 }
 
 func CheckIfExists(uid int) bool {
