@@ -1,13 +1,9 @@
 # This workflow will build a golang project
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go
 
-name: Go
+name: build
 
-on:
-  push:
-    branches: [ "main", "actions" ]
-  pull_request:
-    branches: [ "main", "actions" ]
+on: [push, pull_request]
 
 jobs:
 
@@ -27,7 +23,7 @@ jobs:
     - name: Upload build
       uses: actions/upload-artifact@v4
       with:
-        name: Go-Grasscutter_ubuntu
+        name: Go-Grasscutter-ubuntu
         path: Go-Grasscutter
 
   build-win:
@@ -46,5 +42,6 @@ jobs:
     - name: Upload build
       uses: actions/upload-artifact@v4
       with:
-        name: Go-Grasscutter_win
+        name: Go-Grasscutter-win
         path: Go-Grasscutter.exe
+        
