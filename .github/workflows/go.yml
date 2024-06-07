@@ -44,4 +44,3 @@ jobs:
       with:
         name: Go-Grasscutter-win
         path: Go-Grasscutter.exe
-        
