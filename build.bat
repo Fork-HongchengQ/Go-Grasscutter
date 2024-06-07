@@ -1,0 +1,1 @@
+mkdir bin & go build Go-Grasscutter -o .\bin\Go-Grasscutter.exe go-grasscutter.go

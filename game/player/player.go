@@ -82,7 +82,7 @@ type Player struct {
 
 	NextGuid int64
 	PeerId   int
-	World    *world.World
+	//World    *world.World
 	// curHomeWorld
 	HasSentInitPacketInHome bool
 	// scene
@@ -255,7 +255,7 @@ func (p *Player) ManagementInit() {
 		TakenRewards: make(map[int]*battlepass.Reward),
 	}
 
-	p.World = &world.World{} // todo INCOMPLETE
+	//p.World = &world.World{} // todo INCOMPLETE
 }
 
 func CheckIfExists(uid int) bool {
